@@ -98,3 +98,8 @@ While it began as a guided tutorial, the process of debugging and rebuilding eac
 - **Tech With Lucy** – for the excellent AWS project tutorial series that guided this process.  
 - **Google Gemini** – for helping explain AWS errors and command-line issues during troubleshooting.  
 - **AWS Documentation** – for validating configurations and permissions.  
+
+⭐ **Next Steps**
+I plan to rebuild this same CI/CD pipeline using **Terraform** for Infrastructure as Code (IaC),
+to automate the creation of ECS clusters, roles, and ECR repositories.
+
