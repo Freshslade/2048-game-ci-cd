@@ -104,15 +104,15 @@ While it began as a guided tutorial, the process of debugging and rebuilding eac
 📁 *Repository structure:*
 2048-game-ci-cd/
 │
-├── evidence/ # Screenshots and proof of deployment
-│ ├── code-pipeline-green-run.png
-│ ├── codebuild-green.png
-│ ├── ecr-service.png
-│ ├── ecs-task-public-ip.png
-│ ├── ecs-tasks-container-uri.png
-│ ├── live-game.png
-│ ├── s3-imagedefinitions.png
-│ └── sg-port-80.png
+├── evidence/             # Screenshots and proof of deployment
+│   ├── code-pipeline-green-run.png
+│   ├── codebuild-green.png
+│   ├── ecr-service.png
+│   ├── ecs-task-public-ip.png
+│   ├── ecs-tasks-container-uri.png
+│   ├── live-game.png
+│   ├── s3-imagedefinitions.png
+│   └── sg-port-80.png
 │
 ├── Dockerfile
 ├── buildspec.yml
