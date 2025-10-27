@@ -11,7 +11,7 @@ Along the way, I used Google’s **Gemini** to debug and understand key AWS erro
 
 Here’s the deployed **2048 web game** running live on ECS Fargate:
 
-![Live App Screenshot](./evidence/live-game.png)
+![Live App Screenshot](./evidence/live-game.png?v=2)
 
 *(For security reasons, the public IP is not shown here, but this was verified working during deployment.)*
 
@@ -37,23 +37,23 @@ This wasn’t a copy-paste exercise — I built each part manually, fixed my own
 Here’s how everything fits together — including my own screenshots from each stage of deployment:
 
 1. **CodeBuild** – builds the Docker image, tags it, and pushes it to ECR.  
-   ![CodeBuild Success](./evidence/codebuild-green.png)
+   ![CodeBuild Success](./evidence/codebuild-green.png?v=2)
 
 2. **Amazon ECR** – stores the Docker image for ECS to use.  
-   ![ECR Repository](./evidence/ecr-service.png)
+   ![ECR Repository](./evidence/ecr-service.png?v=2)
 
 3. **Amazon ECS (Fargate)** – runs the containerized 2048 app as a service.  
-   ![ECS Tasks and Container URI](./evidence/ecs-tasks-container-uri.png)
-   ![ECS Task Public IP](./evidence/ecs-task-public-ip.png)
+   ![ECS Tasks and Container URI](./evidence/ecs-tasks-container-uri.png?v=2)
+   ![ECS Task Public IP](./evidence/ecs-task-public-ip.png?v=2)
 
 4. **CodePipeline** – automates the process from GitHub → build → deploy.  
-   ![CodePipeline Successful Run](./evidence/code-pipeline-green-run.png)
+   ![CodePipeline Successful Run](./evidence/code-pipeline-green-run.png?v=2)
 
 5. **S3** – stores the build artifact (`imagedefinitions.json`) for ECS deployment.  
-   ![S3 Artifact](./evidence/s3-imagedefinitions.png)
+   ![S3 Artifact](./evidence/s3-imagedefinitions.png?v=2)
 
 6. **Security Groups & Networking** – opened port 80 to allow public HTTP access.  
-   ![Security Group Port 80](./evidence/sg-port-80.png)
+   ![Security Group Port 80](./evidence/sg-port-80.png?v=2)
 
 ---
 
