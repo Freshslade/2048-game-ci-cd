@@ -9,9 +9,9 @@ Along the way, I used Google’s **Gemini** to debug and understand key AWS erro
 
 ## 🌐 Live Application
 
-Here’s the deployed 2048 game running live on ECS Fargate:
+Here’s the deployed **2048 web game** running live on ECS Fargate:
 
-![Live App Screenshot](./evidence/live-app.png)
+![Live App Screenshot](./evidence/live-game.png)
 
 *(For security reasons, the public IP is not shown here, but this was verified working during deployment.)*
 
@@ -34,30 +34,26 @@ This wasn’t a copy-paste exercise — I built each part manually, fixed my own
 
 ## 🧩 Architecture Overview
 
-Here’s how everything fits together:
+Here’s how everything fits together — including my own screenshots from each stage of deployment:
 
-1. **GitHub Repository** – stores the source code and Dockerfile.  
-   ![GitHub Repository Root](./evidence/github-root.png)
+1. **CodeBuild** – builds the Docker image, tags it, and pushes it to ECR.  
+   ![CodeBuild Success](./evidence/codebuild-green.png)
 
-2. **CodeBuild** – builds the Docker image, tags it, and pushes it to ECR.  
-   ![CodeBuild Succeeded](./evidence/codebuild-success.png)
+2. **Amazon ECR** – stores the Docker image for ECS to use.  
+   ![ECR Repository](./evidence/ecr-service.png)
 
-3. **Amazon ECR** – acts as the container image repository.  
-   ![ECR Repository](./evidence/ecr-repo.png)
-   ![ECR Image Successfully Pushed](./evidence/ecr-image.png)
+3. **Amazon ECS (Fargate)** – runs the containerized 2048 app as a service.  
+   ![ECS Tasks and Container URI](./evidence/ecs-tasks-container-uri.png)
+   ![ECS Task Public IP](./evidence/ecs-task-public-ip.png)
 
-4. **CodePipeline** – automates the entire process from code push → build → deploy.  
-   ![CodePipeline Green – Deployment Successful](./evidence/codepipeline-green.png)
+4. **CodePipeline** – automates the process from GitHub → build → deploy.  
+   ![CodePipeline Successful Run](./evidence/code-pipeline-green-run.png)
 
-5. **Amazon ECS (Fargate)** – runs the containerized 2048 app in a scalable environment.  
-   ![ECS Service Running](./evidence/ecs-service.png)
-   ![ECS Task Showing Public IP](./evidence/ecs-task-public-ip.png)
+5. **S3** – stores the build artifact (`imagedefinitions.json`) for ECS deployment.  
+   ![S3 Artifact](./evidence/s3-imagedefinitions.png)
 
-6. **Networking (VPC & Security Group)** – recreated manually with HTTP inbound access.  
-   ![Security Group Opened for HTTP Port 80](./evidence/sg-http-80.png)
-
-7. **S3** – stores artifacts such as `imagedefinitions.json` for ECS deployments.  
-   ![S3 Artifact File](./evidence/s3-imagedefinitions.png)
+6. **Security Groups & Networking** – opened port 80 to allow public HTTP access.  
+   ![Security Group Port 80](./evidence/sg-port-80.png)
 
 ---
 
